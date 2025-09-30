@@ -4,10 +4,22 @@ This template is based on the `baposter` class written by Brian Amberg and now m
 
 ![](poster_example.png)
 
+
+## How to use
+
+Linux shell:
+
 ```
 # with the baposter.cls file in the same directory
 $ pdflatex poster
 ```
+
+Overleaf:
+
+1. Download this repo as a ZIP file
+2. Upload to your Overleaf project
+
+## Credits
 
 Licence GPL
 (c) 2007-2011 Brian Amberg and Reinhold Kainhofer
