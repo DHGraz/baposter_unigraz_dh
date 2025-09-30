@@ -10,43 +10,47 @@
 \usepackage{enumitem}
 \usepackage{setspace}
 
+%\font\nullfont=cmr10
+
+
 \selectcolormodel{cmyk}
 
 \graphicspath{{pics/}} % Directory in which figures are stored
 
-\newcommand{\compresslist}{%
-\setlength{\itemsep}{0pt}%
-\setlength{\parskip}{1pt}%
-\setlength{\parsep}{0pt}%
+\newcommand{\compresslist}{
+	\setlength{\itemsep}{0pt}%
+	\setlength{\parskip}{1pt}%
+	\setlength{\parsep}{0pt}%
 }
 
-\newenvironment{boenumerate}
-  {\begin{enumerate}\renewcommand\labelenumi{\textbf\theenumi.}}
+\newenvironment{boenumerate}%
+  {\begin{enumerate}\renewcommand\labelenumi{\textbf\theenumi.}}%
   {\end{enumerate}}
 
 
-\begin{document}
 
-\definecolor{Mycolor1}{HTML}{222222}
-\definecolor{Mycolor2}{HTML}{FFFF00}
+\definecolor{ivygreen}{HTML}{B1D1A3}
+\definecolor{vanillacream}{HTML}{FFF9B8}
 \definecolor{graz_yellow}{HTML}{FFDF00}
 \definecolor{graz_gray}{HTML}{666666}
 \definecolor{graz_black}{HTML}{000000}
 
-\begin{poster}
+\begin{document}
+\begin{poster} % IMPORTANT: no empty lines between poster args { <config }{ <eye-catcher> }{ <title> }{ <authors }{ <uni logo> }
 {
-grid=false,
+grid=true, % helps with the box layout: set to false when happy with it
 headerborder=open, % Adds a border around the header of content boxes
 colspacing=1em, % Column spacing
-bgColorOne=white, % Background color for the gradient on the left side of the poster
-bgColorTwo=white, % Background color for the gradient on the right side of the poster
-borderColor=Mycolor1, % Border color
+bgColorOne=white, % Background color for the gradient on the left (top) of the poster
+bgColorTwo=ivygreen, % Background color for the gradient on the right (bottom) of the poster
+background=shadetb, % Background gradient {plain,shadelr,shadetb}
+borderColor=ivygreen, % Border color
 headerColorOne=graz_yellow, % Background color for the header in the content boxes (left side)
 headerColorTwo=graz_black, % Background color for the header in the content boxes (right side)
 headerFontColor=graz_black, % Text color for the header text in the content boxes
 boxColorOne=white, % Background color of the content boxes
 textborder=faded, %rectangle, % Format of the border around content boxes, can be: none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright or faded
-eyecatcher=false, % Set to false for ignoring the left logo in the title and move the title left
+eyecatcher=true, % Set to false for ignoring the left logo in the title and move the title left
 headerheight=0.11\textheight, % Height of the header
 headershape=rectangle, % Specify the rounded corner in the content box headers, can be: rectangle, small-rounded, roundedright, roundedleft or rounded
 headershade=plain,
@@ -54,33 +58,39 @@ headerfont=\Large\textsf, % Large, bold and sans serif font in the headers of co
 %textfont={\setlength{\parindent}{1.5em}}, % Uncomment for paragraph indentation
 linewidth=2pt % Width of the border lines around content boxes
 }
+%%% Eye-catcher %%%%%%% only shown if eye-catcher=true %%%%%%%%%%%%%%%%%%%%%%%%
+{\begin{minipage}{.125\linewidth}
+	\includegraphics[width=\linewidth]{didip_sm.png}
 
-%
+	\includegraphics[width=\linewidth]{logo_erc-flag_eu.png}
+\end{minipage}}
 %%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {
-\textsf{Robust Textline Annotation and Extraction\\ for HTR on Medieval Charters}
+	\textsf{This Is A Rather Long Title For A Digital\\ 
+	Humanities Poster Presentation}
 }
 %%% Authors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {
-\sf\vspace{.2em}\\
-A. Uthor, C. Ontributor
-\vspace{.2em}\\
+\sf\vspace{.2em}
+First Author, Second Author\\
+\vspace{.2em}
 {\small Department of Digital Humanities, University of Graz}
 }
 % For contributors from different labs:
 % {
 % \sf\vspace{.2em}\\
-% A. Uthor$^{1}$, C. Ontributor$^{2}$
+% First Author^{1}$, Second Author$^{2}$
 % \vspace{.2em}\\
 % $^{1}$Department of Digital Humanities, University of Graz\\
 % $^{2}$Institute for Machine Learning, TU Graz
 % }
+%%% University logo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {
-\includegraphics[width=.17\linewidth]{unigraz_logo.png} % UniGraz logo
+\includegraphics[width=.125\linewidth]{unigraz_logo.png} % UniGraz logo
 }
 
 % this states the box starts at column 0 (edge of page), row 0 (top of page) for a span of 3 (columns wide)
-\headerbox{Introduction}{name=introduction,column=0,row=0, span=3}{
+\begin{posterbox}[name=introduction,column=0,row=0, span=3]{Introduction}
 	\small
     \lipsum*[19]
 	\vspace{1em}
@@ -103,19 +113,14 @@ A. Uthor, C. Ontributor
             \item Aenean sed diam urna tempor pulvinar vivamus fringilla. 
 			\end{itemize}
 	\end{minipage}
-}
-\newcommand{\compresslist}{
-	\setlength{\itemsep}{1pt}
-	\setlength{\parskip}{0pt}
-	\setlength{\parsep}{0pt}
-}
+\end{posterbox}
 
-
-% this states the box starts at column 0 (edge of page), directly below the box labelled 'corpus' for a span of 1 (column wide)
-\headerbox{Figures}{name=corpus,column=0,below=introduction,span=1}{
+% this states the box starts at column 0 (edge of page), directly below the box labelled 'introduction' for a span of 1 (column wide)
+\begin{posterbox}[name=pseudo-figure,column=0,below=introduction,span=1]{Pseudo-figures}
 
 	\small
 	    
+	% the 'figure' environment may not occur in a box; this is a workaround:
         \begin{minipage}{\textwidth}
         \centering
         \includegraphics[width=.6\textwidth]{9bde06a84833576b4027ae6331553753.img.jpg}\\
@@ -125,24 +130,24 @@ A. Uthor, C. Ontributor
         \vspace{1em}
         
         \lipsum*[2][1-5]
-}
+\end{posterbox}
 
-\headerbox{Paragraph with wrapped figure}{name=subcorpus,column=1,below=introduction,span=1}{
-\lipsum[10]
-}
+\begin{posterbox}[name=pdf-plot,column=1,below=introduction,span=1]{Pdf Plot}
+	\lipsum*[5]
 
-\headerbox{Vertical span}{name=vertical,column=2,below=introduction,height=2}{
-\lipsum[10]
-}
+	\lipsum*[7][5-8]
+\end{posterbox}
+
+\begin{posterbox}[name=vertical-box,column=2,below=introduction]{Vertical span}
+\lipsum[10-12]
+
+\lipsum*[1][9-11]
+\end{posterbox}
 
 
 
-\headerbox{Compressed lists}{name=segmentation,column=0,span=2,below=corpus}{
+\begin{posterbox}[name=segmentation,column=0,span=2,below=pseudo-figure]{Two-column box, with compact lists}
 
-\begin{center}
-\includegraphics[width=.85\linewidth]{pics/segmentation_pipeline.pdf}
-\end{center}
-\footnotesize
 \begin{multicols}{2}
 	A list:
 	\begin{itemize}
@@ -151,24 +156,23 @@ A. Uthor, C. Ontributor
 		\item In lobortis mi nec nulla dictum, sed interdum sapien scelerisque.
 		\item Nam non nulla at lectus rhoncus lacinia.
 	\end{itemize}
-    \lipsum[1]
+    \lipsum[1-2]
 \end{multicols}
 
-}
+\end{posterbox}
 
-\headerbox{Fusce Feugiat Rutrum Magna}{name=htr,column=0,below=segmentation,span=2,above=bottom}{
-
-
-
-%	\begin{itemize}
-%    \item{Nicolaou, A., Christlein, V., Riba, E., Shi, J., Vogeler, G., \& Seuret, M. (2022). TorMentor: Deterministic dynamic-path, data augmentations with fractals. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 2707–2711).    
-%    }
-%    \item{Nicolaou, A., Luger, D., Decker, F., Renet, N., Christlein, V., \& Vogeler, G. (2023). Efficient Annotation of Medieval Charters. arXiv preprint arXiv:2306.14071.    
-%\end{itemize}
-}
+\begin{posterbox}[name=htr,column=0,below=segmentation,span=2,above=bottom]{PDF plots}
+	\begin{minipage}{.48\linewidth}
+		\lipsum[5]
+	\end{minipage}\hfill
+	\begin{minipage}{.48\linewidth}
+	\includegraphics[width=\textwidth]{img_size_scatter_plot.pdf}
+	\end{minipage}%
+\end{posterbox}
 
 
-\headerbox{References}{name=references,column=2,below=segmentation,span=1,above=bottom, headerColorOne=white}{
+
+\begin{posterbox}[name=references,column=2,below=segmentation,span=1,above=bottom,headerColorOne=white]{References}
 \small
 	Segmentation corpus (831 charters with JSON annotation): \texttt{https://zenodo.org/records/15460694}
 
@@ -181,14 +185,16 @@ A. Uthor, C. Ontributor
 	Line segmentation pipeline:
 	
 	{\footnotesize \texttt{https://github.com/nicolasrenet/ddpa\_lines\_ng.git}}
-\begin{center}
+
+\vspace{2em}
+\centering
 \begin{tabular}{cc}
-\includegraphics[width=1.8cm]{monasterium_qrcode.png} & 
-\includegraphics[width=2.1cm]{pqr_didip.png} \\
-	Monasterium & DiDip
+\includegraphics[width=2.1cm]{qr_monasterium.png} &
+	\includegraphics[width=2.1cm]{qr_didip.png} \\
+Monasterium & 
+	DiDip
 \end{tabular}
-\end{center}
-}
+\end{posterbox}
 
 
 \end{poster}
