@@ -19,7 +19,7 @@ Overleaf:
 2. Upload to your Overleaf project
 
 
-![Poster example](poster_example.png){width=30%}
+![Poster example](poster_example.png){width=200}
 
 ## Credits
 
