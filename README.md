@@ -2,7 +2,6 @@
 
 This template is based on the `baposter` class written by Brian Amberg and now maintained by Pieter van Oostrum:
 
-![](poster_example.png)
 
 
 ## How to use
@@ -18,6 +17,9 @@ Overleaf:
 
 1. Download this repo as a ZIP file
 2. Upload to your Overleaf project
+
+
+![Poster example](poster_example.png){width=30%}
 
 ## Credits
 
