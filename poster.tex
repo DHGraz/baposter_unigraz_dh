@@ -9,7 +9,7 @@
 \documentclass[a0paper,portrait]{baposter}
 \usepackage{comment}
 \usepackage{multicol}
-\usepackage{wrapfig}
+\usepackage{hyperref} % for \url
 \usepackage{lmodern}
 \usepackage{lipsum,graphicx}
 \usepackage{multirow}
@@ -57,7 +57,7 @@ headerColorOne=graz_yellow, % Background color for the header in the content box
 headerColorTwo=graz_black, % Background color for the header in the content boxes (right side)
 headerFontColor=graz_black, % Text color for the header text in the content boxes
 boxColorOne=white, % Background color of the content boxes
-textborder=faded, %rectangle, % Format of the border around content boxes, can be: none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright or faded
+textborder=rounded, % Format of the border around content boxes, can be: none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright or faded
 eyecatcher=true, % Set to false for ignoring the left logo in the title and move the title left
 headerheight=0.11\textheight, % Height of the header
 headershape=rectangle, % Specify the rounded corner in the content box headers, can be: rectangle, small-rounded, roundedright, roundedleft or rounded
@@ -181,18 +181,12 @@ First Author, Second Author\\
 
 
 \begin{posterbox}[name=references,column=2,below=segmentation,span=1,above=bottom,headerColorOne=white]{References}
-\small
-	Segmentation corpus (831 charters with JSON annotation): \texttt{https://zenodo.org/records/15460694}
 
-\vspace{1em}
-	Line annotation tool: 
+	Brian {\sc Amberg}, original code for \texttt{baposter}:  \url{http://www.brian-amberg.de/uni/poster/}
+	\vspace{2em}
 
-	{\footnotesize \texttt{https://github.com/nicolasrenet/ch-lat.git}}
-\vspace{1em}
+	Pieter {\sc van Oostrum}, \texttt{baposter} fork: \url{https://github.com/pietvo/baposter}
 
-	Line segmentation pipeline:
-	
-	{\footnotesize \texttt{https://github.com/nicolasrenet/ddpa\_lines\_ng.git}}
 
 \vspace{2em}
 \centering
