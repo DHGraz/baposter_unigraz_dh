@@ -1,4 +1,4 @@
-# A template for UniGraz-DH poster
+# A template for UniGraz-DH posters
 
 This template is based on the `baposter` class written by Brian Amberg and now maintained by Pieter van Oostrum:
 
