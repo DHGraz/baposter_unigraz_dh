@@ -3,13 +3,13 @@
 % References:
 % + baposter original repo: http://www.brian-amberg.de/uni/poster/
 % + baposter github fork: https://github.com/pietvo/baposter/
-% + this template github: 
+% + this template github: https://github.com/DHGraz/baposter_unigraz_dh
 % 10/2025
 
 \documentclass[a0paper,portrait]{baposter}
 \usepackage{comment}
 \usepackage{multicol}
-\usepackage{hyperref} % for \url
+\usepackage{hyperref} % for \url (NPR: better avoid - \url{} produces unsightly artefacts in other boxes!)
 \usepackage{lmodern}
 \usepackage{lipsum,graphicx}
 \usepackage{multirow}
@@ -44,7 +44,7 @@
 \definecolor{graz_black}{HTML}{000000}
 
 \begin{document}
-\begin{poster} % IMPORTANT: no empty lines between poster args { <config }{ <eye-catcher> }{ <title> }{ <authors }{ <uni logo> }
+\begin{poster} % IMPORTANT: no empty lines between poster args { <config> }{ <eye-catcher> }{ <title> }{ <authors }{ <uni_logo> }
 {
 grid=false, % helps with the box layout: set to false when happy with it
 headerborder=open, % Adds a border around the header of content boxes
@@ -96,8 +96,8 @@ First Author, Second Author\\
 {
 \includegraphics[width=.125\linewidth]{unigraz_logo.png} % UniGraz logo
 }
-
-% this states the box starts at column 0 (edge of page), row 0 (top of page) for a span of 3 (columns wide)
+%
+%% this states the box starts at column 0 (edge of page), row 0 (top of page) for a span of 3 (columns wide)
 \begin{posterbox}[name=introduction,column=0,row=0, span=3]{Introduction}
 	\small
     \lipsum*[19]
@@ -154,7 +154,7 @@ First Author, Second Author\\
 
 
 
-\begin{posterbox}[name=segmentation,column=0,span=2,below=pseudo-figure]{Two-column box, with compact lists}
+\begin{posterbox}[name=two-column-box,column=0,span=2,below=pseudo-figure]{Two-column box, with compact lists}
 
 \begin{multicols}{2}
 	A list:
@@ -169,7 +169,7 @@ First Author, Second Author\\
 
 \end{posterbox}
 
-\begin{posterbox}[name=htr,column=0,below=segmentation,span=2,above=bottom]{PDF plots}
+\begin{posterbox}[name=pdfplots,column=0,below=two-column-box,span=2,above=bottom]{PDF plots}
 	\begin{minipage}{.48\linewidth}
 		\lipsum[5]
 	\end{minipage}\hfill
@@ -180,22 +180,27 @@ First Author, Second Author\\
 
 
 
-\begin{posterbox}[name=references,column=2,below=segmentation,span=1,above=bottom,headerColorOne=white]{References}
+\begin{posterbox}[name=references,column=2,below=two-column-box,span=1,above=bottom,headerColorOne=white]{References}
 
-	Brian {\sc Amberg}, original code for \texttt{baposter}:  \url{http://www.brian-amberg.de/uni/poster/}
+	Brian {\sc Amberg}, original code for \texttt{baposter}:  
+
+	\texttt{http://www.brian-amberg.de/uni/poster/}
 	\vspace{2em}
 
-	Pieter {\sc van Oostrum}, \texttt{baposter} fork: \url{https://github.com/pietvo/baposter}
+	Pieter {\sc van Oostrum}, \texttt{baposter} fork: 
 
+	\texttt{https://github.com/pietvo/baposter}
+%
 
 \vspace{2em}
-\centering
-\begin{tabular}{cc}
-\includegraphics[width=2.1cm]{qr_monasterium.png} &
-	\includegraphics[width=2.1cm]{qr_didip.png} \\
-Monasterium & 
-	DiDip
-\end{tabular}
+	\begin{center}
+		\begin{tabular}{cc}
+		\includegraphics[width=2.1cm]{qr_monasterium.png} &
+			\includegraphics[width=2.1cm]{qr_didip.png} \\
+		Monasterium & 
+			DiDip
+		\end{tabular}
+	\end{center}
 \end{posterbox}
 
 
