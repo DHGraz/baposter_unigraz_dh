@@ -8,6 +8,7 @@ The `baposter` class is a self-contained LaTeX class for presentation slides:
 + It is almost pure TeX/LaTeX, i.e. largely self-contained, with no need for sophisticated packages or theme stylesheets (I'm looking at you, `beamer`)
 + The layout relies on a grid---it can be made visible in the design phase---, on which `box` elements are placed. The layout scheme is flat, with no hierarchical relationship between blocks. Positioning use either row/col coordinates or relative locations between boxes.
 + The template is easy to customize, with a sufficient range of options for the background, the box shapes etc. 
++ Use the LaTeX PDF engine of your choice: `pdflatex`, `lualatex`, ...
 
 $\rightarrow$ a good choice when transitioning from MS or Google software.
 
